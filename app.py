@@ -1,7 +1,3 @@
-from pathlib import Path
-import zipfile
-
-app_code = r'''import os
 import io
 import json
 import math
@@ -1119,14 +1115,3 @@ st.caption(
     "Research/educational scanner. NSE data availability and cloud/network "
     "limits can affect scan completeness. No profit guarantee."
 )
-'''
-
-path = Path("/mnt/data/app.py")
-path.write_text(app_code, encoding="utf-8")
-
-zip_path = Path("/mnt/data/NSE_Monthly_Trend_Line_Break_app_only.zip")
-with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
-    z.write(path, arcname="app.py")
-
-print(f"Created: {path} ({path.stat().st_size:,} bytes)")
-print(f"Created ZIP: {zip_path} ({zip_path.stat().st_size:,} bytes)")
