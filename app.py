@@ -55,6 +55,17 @@ st.markdown(
 [data-testid="stHeader"] {
     background: #dff4ff;
 }
+[data-testid="stHeader"]::after {
+    content: "📈 NSE Monthly Trend Line Breakout";
+    position: absolute;
+    left: 4.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #063b2a;
+    white-space: nowrap;
+}
 [data-testid="stSidebar"] {
     background: #e6fff0;
 }
@@ -869,7 +880,6 @@ def make_monthly_chart(symbol, daily, result=None):
 # ============================================================
 # UI
 # ============================================================
-st.title("📈 NSE Monthly Trend Line Breakout")
 st.markdown(
     '<div class="info-box">'
     "<b>Monthly signal + Weekly swing-high resistance</b><br>"
