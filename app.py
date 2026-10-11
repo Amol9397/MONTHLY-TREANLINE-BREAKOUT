@@ -973,7 +973,9 @@ except Exception as e:
     st.error(str(e))
     st.stop()
 
-symbols = master["SYMBOL"].dropna().astype(str).str.upper().drop_duplicates().tolist()
+symbols = sorted(
+    master["SYMBOL"].dropna().astype(str).str.upper().unique().tolist()
+)[:100]
 
 c1, c2, c3, c4 = st.columns(4)
 c1.metric("NSE EQ universe", f"{len(symbols):,}")
